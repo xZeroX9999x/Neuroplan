@@ -1,0 +1,115 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  body {
+    letter-spacing: -0.005em;
+  }
+
+  .font-serif {
+    letter-spacing: -0.02em;
+    font-weight: 400;
+  }
+
+  .font-mono {
+    font-feature-settings: 'zero' 1;
+  }
+
+  /* Noise overlay for texture */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0.025;
+    z-index: 1000;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='120' height='120' filter='url(%23n)' opacity='0.8'/%3E%3C/svg%3E");
+  }
+}
+
+@layer components {
+  .np-progress-track {
+    @apply bg-fg/5 h-1 rounded-full overflow-hidden;
+  }
+  .np-progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #d4ff3a, #a8cc2a);
+    transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .np-btn {
+    @apply transition-all duration-150;
+    letter-spacing: -0.01em;
+  }
+  .np-btn:hover:not(:disabled) {
+    transform: translateY(-1px);
+  }
+  .np-btn-primary {
+    @apply bg-accent text-bg font-semibold;
+  }
+  .np-btn-primary:hover:not(:disabled) {
+    background: #e0ff5a;
+    box-shadow: 0 8px 30px -10px rgba(212, 255, 58, 0.4);
+  }
+  .np-btn-ghost {
+    @apply bg-transparent text-fg border border-fg/15;
+  }
+  .np-btn-ghost:hover:not(:disabled) {
+    @apply bg-fg/5 border-fg/30;
+  }
+  .np-btn-danger {
+    @apply bg-transparent text-danger border border-danger/30;
+  }
+  .np-btn-danger:hover:not(:disabled) {
+    background: rgba(255, 123, 107, 0.1);
+  }
+
+  .np-tab {
+    @apply px-4 py-2.5 rounded-lg cursor-pointer transition-all duration-150 text-sm text-muted border border-transparent;
+    letter-spacing: -0.005em;
+  }
+  .np-tab:hover {
+    @apply text-fg;
+  }
+  .np-tab-active {
+    background: rgba(212, 255, 58, 0.1);
+    color: #d4ff3a;
+    border-color: rgba(212, 255, 58, 0.3);
+  }
+
+  .np-card {
+    @apply bg-surface border border-border rounded-2xl transition-colors duration-200;
+  }
+  .np-card:hover {
+    @apply border-border-hover;
+  }
+  .np-card-accent {
+    border-color: rgba(212, 255, 58, 0.3);
+    background:
+      linear-gradient(180deg, rgba(212, 255, 58, 0.04) 0%, transparent 40%),
+      #141413;
+  }
+
+  .np-input {
+    @apply bg-surface-2 border border-fg/10 text-fg rounded-lg py-3 px-4 w-full text-sm outline-none transition-colors duration-150;
+    font-family: inherit;
+  }
+  .np-input:focus {
+    border-color: rgba(212, 255, 58, 0.5);
+  }
+  .np-input::placeholder {
+    color: #5a5a54;
+  }
+
+  .np-pomodoro-ring {
+    transform: rotate(-90deg);
+  }
+  .np-pomodoro-ring circle {
+    transition: stroke-dashoffset 0.8s linear;
+  }
+}
