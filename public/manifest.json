@@ -1,0 +1,33 @@
+{
+  "name": "Neuroplan · 28 días",
+  "short_name": "Neuroplan",
+  "description": "Protocolo de aprendizaje acelerado basado en neurociencia. De 0 a 100 en 28 días.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#0e0e0c",
+  "theme_color": "#0e0e0c",
+  "categories": ["productivity", "education", "lifestyle"],
+  "lang": "es",
+  "icons": [
+    {
+      "src": "/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/icon-maskable-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ]
+}
